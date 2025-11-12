@@ -37,3 +37,16 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Ignore all ZIP files in the root
+*.zip
+
+# Ignore all text files in the root
+*.txt
+
+# Optional: Ignore target directory (Maven build outputs)
+target/
+
+# Optional: IDE-specific files
+.idea/
+*.iml
