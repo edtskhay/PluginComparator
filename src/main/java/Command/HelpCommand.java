@@ -10,7 +10,7 @@ public class HelpCommand {
             Plugin Comparator CLI Tool (cutting edge btw)
             ---------------------------------------------
             Usage:
-             mvn compile exec:java -Dexec.mainClass=App -Dexec.args="<command> [options>"
+             mvn compile exec:java -Dexec.mainClass=Main -Dexec.args="<command> [options>"
             
             Commands:
              extract    Parse a plugin (ZIP/JAR) and output its entries to a file
@@ -26,8 +26,8 @@ public class HelpCommand {
              -o, --output    Path to output text file where result of comparison will be saved [optional]
             
             Examples:
-             mvn compile exec:java -Dexec.mainClass=App -Dexec.args="extract -i plugin.zip -o entries.txt"
-             mvn compile exec:java -Dexec.mainClass=App -Dexec.args="compare -f entries1.txt -s entries2.txt"
+             mvn compile exec:java -Dexec.mainClass=Main -Dexec.args="extract -i plugin.zip -o entries.txt"
+             mvn compile exec:java -Dexec.mainClass=Main -Dexec.args="compare -f entries1.txt -s entries2.txt -o output.txt"
             
             Notes:
              - 'extract' will generate a text file listing all entries in the plugin.

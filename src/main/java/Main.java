@@ -7,7 +7,7 @@ import Service.FileWriterService;
 import org.apache.commons.cli.*;
 import java.util.Arrays;
 
-public class App {
+public class Main {
     public static void main(String[] args){
 
         FileComparisonService fileComparer = new FileComparisonService();
