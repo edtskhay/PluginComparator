@@ -1,2 +1,0 @@
-helloworld-master/README.md
-helloworld-master/helloworld.jar
