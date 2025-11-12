@@ -42,7 +42,6 @@ public class CompareCommand {
             throw new IllegalArgumentException("Both first (-f) and second (-s) files are required.");
         }
 
-
         try{
             String output = fileComparer.compare(firstFile, secondFile, outputFile);
             if(outputFile != null){
