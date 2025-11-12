@@ -24,7 +24,7 @@ A small CLI tool to extract plugin entries from ZIP/JAR files and compare them f
 ### Extract plugin entries
 
 ```bash
-mvn compile exec:java -Dexec.mainClass=App -Dexec.args="extract -i <plugin.zip> -o <entries.txt>"
+mvn compile exec:java -Dexec.mainClass=Main -Dexec.args="extract -i <plugin.zip> -o <entries.txt>"
 ```
 - -i / --input : path to the plugin file (ZIP or JAR) [required]
 - -o / --output : path to the output text file [required]
@@ -32,11 +32,11 @@ mvn compile exec:java -Dexec.mainClass=App -Dexec.args="extract -i <plugin.zip> 
 **Example:**
 
 ```
-mvn compile exec:java -Dexec.mainClass=App -Dexec.args="extract -i plugin.zip -o entries.txt"
+mvn compile exec:java -Dexec.mainClass=Main -Dexec.args="extract -i plugin.zip -o entries.txt"
 ```
 ### Compare two entry files
 ```
-mvn compile exec:java -Dexec.mainClass=App -Dexec.args="compare -f <entries1.txt> -s <entries2.txt> [-o <output.txt>]"
+mvn compile exec:java -Dexec.mainClass=Main -Dexec.args="compare -f <entries1.txt> -s <entries2.txt> [-o <output.txt>]"
 ```
 - -f / --first : path to first entry file [required]
 
@@ -47,5 +47,5 @@ mvn compile exec:java -Dexec.mainClass=App -Dexec.args="compare -f <entries1.txt
 **Example:**
 
 ```
-mvn compile exec:java -Dexec.mainClass=App -Dexec.args="compare -f entries1.txt -s entries2.txt -o comparison.txt"
+mvn compile exec:java -Dexec.mainClass=Main -Dexec.args="compare -f entries1.txt -s entries2.txt -o comparison.txt"
 ```
