@@ -1,0 +1,13 @@
+src/nl/tudelft/semmaps/v1/Router.java
+src/nl/tudelft/semmaps/v1/Graph.java
+src/nl/tudelft/semmaps/v1/Route.java
+src/nl/tudelft/semmaps/v1/Address.java
+src/nl/tudelft/semmaps/v1/LocationService.java
+src/nl/tudelft/semmaps/v1/Coordinates.java
+src/nl/tudelft/semmaps/v1/AddressDatabase.java
+src/nl/tudelft/semmaps/v1/Main.java
+src/nl/tudelft/semmaps/v1/RouteSegment.java
+src/nl/tudelft/semmaps/v2/NavigationMethod.java
+src/nl/tudelft/semmaps/v2/Router2.java
+src/nl/tudelft/semmaps/v2/Main2.java
+src/nl/tudelft/semmaps/v3/Router3.java

@@ -1,14 +1,26 @@
+import Command.CompareCommand;
 import Command.ExtractCommand;
 import Command.HelpCommand;
-import Command.VersionCommand;
+import Service.FileComparisonService;
+import Service.FileParserService;
+import Service.FileWriterService;
 import org.apache.commons.cli.*;
-import org.apache.commons.lang3.ArrayUtils;
+import java.util.Arrays;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args){
+
+        FileComparisonService fileComparer = new FileComparisonService();
+        FileWriterService fileWriter = new FileWriterService();
+        FileParserService fileParser = new FileParserService();
+
+        if (args.length == 0) {
+            System.out.println("No command provided. Use 'help' for a list of commands.");
+            return;
+        }
 
         String command = args[0];
-        String[] subArgs = ArrayUtils.subarray(args, 1, args.length);
+        String[] subArgs = Arrays.copyOfRange(args, 1, args.length);
 
         switch(command){
            case "extract" -> {
@@ -19,26 +31,31 @@ public class App {
                extractOptions.addOption("o", "output",
                        true, "Outputted file");
 
-               ExtractCommand conversionCommand = new ExtractCommand(extractOptions);
+               ExtractCommand conversionCommand = new ExtractCommand(extractOptions, fileWriter, fileParser);
                conversionCommand.run(subArgs);
            }
-           case "compare" -> {
-               Options extractOptions = new Options();
-               extractOptions.addOption("f", "first",
-                       true, "First file for comparison");
 
-               extractOptions.addOption("s", "second",
-                       true, "Second file for comparison");
-               FileExtractionCommand extractionCommand = new FileExtractionCommand();
+           case "compare" -> {
+               Options compareOptions = new Options();
+               compareOptions.addOption("f", "first",
+                       true, "First file");
+
+               compareOptions.addOption("s", "second",
+                       true, "Second file");
+               compareOptions.addOption("o", "output", true, "Output file");
+
+               CompareCommand compareCommand = new CompareCommand(compareOptions, fileWriter, fileComparer);
+               compareCommand.run(subArgs);
            }
-           case "help" -> {
-               HelpCommand helpCommand = new HelpCommand();
-               //displayHelp(subArgs);
-           }
-           case "version" -> {
-               VersionCommand versionCommand = new VersionCommand();
-               //printVersion();
-           }
+
+            case "help" -> {
+                Options compareOptions = new Options();
+                compareOptions.addOption("h", "help",
+                        false, "Help command");
+
+                HelpCommand helpCommand = new HelpCommand(compareOptions);
+                helpCommand.run(subArgs);
+            }
            default -> System.out.println("Unknown command. Use 'help' to display possible commands.");
         }
     }
