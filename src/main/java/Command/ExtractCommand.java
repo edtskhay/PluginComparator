@@ -39,6 +39,6 @@ public class ExtractCommand {
         List<String> zipEntries = fileParser.parseFile(inputFile);
 
         fileWriter.writeToFile(outputFile, zipEntries);
-        System.out.println("Successfully extracted zip to : " + outputFile);
+        System.out.println("Successfully extracted zip to: " + outputFile);
     }
 }
